@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+    <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type" />
+</head>
+
+<body>
+
+<% @client.friends_timeline.each do |tweet| %>
+	<%= image_tag "#{tweet.user[:profile_image_url]}" %> &nbsp; <%= tweet.user[:screen_name] %>&nbsp;<br/> <span style="font-family:Arial, Helvetica, sans-serif; font-size:14px;"><%= tweet.text %><br/>
+		</span>
+		
+		
+		<%#= image_tag "#{tweet.profile_background_image_url}" %>
+	
+<% end %>
+<br/>
+<br/>
+followers : <%#= @client.followers %>
+<% @client.followers.each do |follower| %>
+<p>	Name : <%= follower.name %></p>
+<p>	<%= image_tag "#{follower.profile_image_url}" %></p>
+<p>	Description : <%= follower.description %></p>
+<p>	Screen Name : <%= follower.screen_name %></p>
+<p>	<%#= follower.statuses_count %></p>
+<p>	Followers : <%= follower.followers_count %></p>
+<p>	Following : <%= follower.friends_count %></p>
+<p>	URL : <%= follower.url %></p>
+	<br/>
+<% end %>
+</body>
+</html>
